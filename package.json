@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "commit": "git add . && git commit -m \"Deploy\" && git push",
+    "commit-all": "npm run commit ; cd securethebox-challenge ; npm run commit ; cd .. ; cd securethebox-client ; npm run commit",
     "ps0":"cd securethebox-challenge && docker-compose ps",
     "ps1":"docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 ps aux",
     "ps2":"docker exec -u root -it securethebox-challenge_juice-shop_1 ps aux",
-    "stop1":"docker exec -u root -it securethebox-challenge_juice-shop_1 forever stopall",
-    "sh1":"docker exec -u root -it securethebox-challenge_juice-shop_1 /bin/sh",
+    "stop1":"docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 forever stopall",
+    "stop2":"docker exec -u root -it securethebox-challenge_juice-shop_1 forever stopall",
+    "sh1":"docker exec -u root -itsecurethebox-challenge_nginx-modsecurity_1 /bin/sh",
+    "sh2":"docker exec -u root -it securethebox-challenge_juice-shop_1 /bin/sh",
     "challenge": "cd securethebox-challenge && npm run challenge"
   },
   "author": "",
