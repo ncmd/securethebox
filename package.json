@@ -1,0 +1,16 @@
+{
+  "name": "securethebox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ps0":"cd securethebox-challenge && docker-compose ps",
+    "ps1":"docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 ps aux",
+    "ps2":"docker exec -u root -it securethebox-challenge_juice-shop_1 ps aux",
+    "stop1":"docker exec -u root -it securethebox-challenge_juice-shop_1 forever stopall",
+    "sh1":"docker exec -u root -it securethebox-challenge_juice-shop_1 /bin/sh",
+    "challenge": "cd securethebox-challenge && npm run challenge"
+  },
+  "author": "",
+  "license": "ISC"
+}

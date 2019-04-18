@@ -1,0 +1,6 @@
+[submodule "securethebox-client"]
+	path = securethebox-client
+	url = https://github.com/ncmd/securethebox-client
+[submodule "securethebox-challenge"]
+	path = securethebox-challenge
+	url = https://github.com/ncmd/securethebox-challenge
