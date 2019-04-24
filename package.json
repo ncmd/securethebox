@@ -1,11 +1,10 @@
 {
   "name": "securethebox",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A platform to assess and measure security skills. ",
   "scripts": {
     "commit": "git add . && git commit -m \"Deploy\" && git push",
-    "commit-all": "npm run commit ; cd securethebox-challenge ; npm run commit ; cd .. ; cd securethebox-client ; npm run commit",
+    "commit-all": "npm run commit ; cd securethebox-challenge ; npm run commit ; cd .. ; cd securethebox-client ; npm run commit ; cd .. ; cd securethebox-server ; npm run commit",
     "ps0":"cd securethebox-challenge && docker-compose ps",
     "ps1":"docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 ps aux",
     "ps2":"docker exec -u root -it securethebox-challenge_juice-shop_1 ps aux",
@@ -13,8 +12,13 @@
     "stop2":"docker exec -u root -it securethebox-challenge_juice-shop_1 forever stopall",
     "sh1":"docker exec -u root -itsecurethebox-challenge_nginx-modsecurity_1 /bin/sh",
     "sh2":"docker exec -u root -it securethebox-challenge_juice-shop_1 /bin/sh",
-    "challenge": "cd securethebox-challenge && npm run challenge"
+    "challenge": "cd securethebox-challenge && npm run challenge",
+    "FRONTEND-----------------------------------------------------------": "",
+    "f": "cd securethebox-client ; npm run start",
+    "deploy-frontend": "run-s deploy-frontend1 deploy-frontend2",
+    "deploy-frontend1": "cd securethebox-client ; echo 'npm run build' ; npm run build",
+    "deploy-frontend2": "cd securethebox-client ; echo 'firebase use ncmd-stb-prod firebase deploy' ; firebase use prod && firebase deploy"
   },
-  "author": "",
+  "author": "Charles Chong",
   "license": "ISC"
 }

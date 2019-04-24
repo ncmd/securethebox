@@ -4,3 +4,6 @@
 [submodule "securethebox-challenge"]
 	path = securethebox-challenge
 	url = https://github.com/ncmd/securethebox-challenge
+[submodule "securethebox-server"]
+	path = securethebox-server
+	url = https://github.com/ncmd/securethebox-server

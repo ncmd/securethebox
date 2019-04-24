@@ -1,18 +1,18 @@
-# securethebox.us
+# securethebox master repository
 
-A platform to assess and measure security skills.
-Inspired by gen0cide/h3 by Alex Levinson <https://github.com/gen0cide/h3>
+*A platform to assess and measure security skills.*
+Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex Levinson
 
-# Getting Started
-- securethebox-client
+# What's in this repository:
+**securethebox-client**
 - This is the Frontend of the Application using Admin Template
 
-- securethebox-challenge
+**securethebox-challenge**
 - This is the MVP challenge (alpha version) using Dockerized environment
 - View README.md inside directory for instructions for development environment setup
 
 ## P0 - MVP
-- Planning
+**Planning**
 - [x] System Design Infrastructure - <https://sketchboard.me/pBw3UcaTPKfb#/>
 - [ ] Architecture Frontend Design Mockup
 - [ ] API Specificiation Draft
@@ -20,17 +20,15 @@ Inspired by gen0cide/h3 by Alex Levinson <https://github.com/gen0cide/h3>
 - [ ] Challenge #1 - Application Security: SQL Injection Detection - On-Click Deploy to AWS ECS
 - [ ] Challenge #1 - Application Security: SQL Injection Detection - Documentation Script
 - [ ] Challenge #1 - Application Security: SQL Injection Detection - Documentation Video
+- [x] First Customers Identified (Friends & Coworkers)
 
-- [ ] First Customers Identified
-
-- Frontend
+**Frontend**
 - [x] React Template - Fuze
-- [x] Academy Page (10%)
+- [ ] Academy Page (10%)
 - [x] Cloudcmd (Texteditor + Terminal) <http://cloudcmd.io/>
 - [ ] Firebase Integration - Firebase Hosting
-- [ ] Ability to modify vulnerable application code
 
-- Backend
+**Backend**
 - [x] Docker - Traefik (Container Reverse Proxy) <https://hub.docker.com/_/traefik>
 - [x] Docker - Nginx + Modsecurity (WAF Detection/Prevention) <https://hub.docker.com/r/ncmd/nginx-modsecurity>
 - [ ] Docker - Splunk (Log Analysis) <https://hub.docker.com/r/splunk/splunk>
@@ -39,29 +37,22 @@ Inspired by gen0cide/h3 by Alex Levinson <https://github.com/gen0cide/h3>
 - [ ] Nginx logs to splunk
 - [ ] Modsecurity logs to splunk
 - [x] Nginx forwarding traffic to vulnerable application (on juiceshop app) (100%)
-- [ ] All containers Dockerized
-- [x] Docker Network
-- [x] Routing traffic to proper container
-- [ ] Automated deployment
-- [ ] API to change rules in WAF
+- [ ] All containers Dockerized (80%)
+- [x] Docker Network figured out (by traefik)
+- [x] Routing traffic to proper container using traefik
+- [x] Ability to modify vulnerable application code
 
-- Challenges
+**Challenges**
 - [ ] SQL Injection Detection
 - [ ] SQL Injection Prevention 
 - [ ] Python Scripting
 - [ ] Log Analysis
 
-- Management
-- [ ] Domain Registered
-- [ ] Create DNS A Record for monitor.securethebox.us
-- [ ] Create DNS A Record for editor-waf.securethebox.us
-- [ ] Create DNS A Record for editor-app.securethebox.us
-- [ ] Create DNS A Record for waf.securethebox.us
-- [ ] Create DNS A Record for app.securethebox.us
-- [ ] Create DNS A Record for splunk.securethebox.us
+**Management**
+- [x] Domain Registered
+- [x] Automate DNS record provisioning using ExternalDNS
 
 ## P1
-- [ ] Platform Self Service
 - [ ] Firebase Integration - Firestore
 - [ ] Create an account with Email
 - [ ] Verify Email Address
@@ -73,6 +64,9 @@ Inspired by gen0cide/h3 by Alex Levinson <https://github.com/gen0cide/h3>
 - [ ] Stripe Subscriptions
 
 ## P2
+- [ ] Automated deployment
+- [ ] Platform Self Service
+- [ ] API to change rules in WAF
 - [ ] CI/CD with Travis - Firebase Functions
 - [ ] CI/CD with Travis - Dockerhub
 - [ ] Create an account with OAuth2 (Google)
@@ -102,17 +96,17 @@ Inspired by gen0cide/h3 by Alex Levinson <https://github.com/gen0cide/h3>
 
 # Architecture Version 1
 <p align="center">
-	<img src="_planning/architecture_ver_1.png" width="100%" align="center" alt="architecture_ver_1">
+	<img src="_planning/architecture_ver_2.png" width="100%" align="center" alt="architecture_ver_2">
 </p>
 
-
 # NOTES
+- May need to switch to a Kubernetes setup if this does not work...
 - Adding a Git Submodule example (DO NOT use this command if you do not know what you're doing...)
 ```
 git submodule add https://github.com/ncmd/securethebox-challenge
 ```
 
-- Traefik Setup
+**Traefik Setup**
 - https://www.digitalocean.com/community/tutorials/how-to-use-traefik-as-a-reverse-proxy-for-docker-containers-on-ubuntu-18-04
 ```
 docker network create challenge1
@@ -131,12 +125,13 @@ docker run -d \
   traefik:1.7.10-alpine
 ```
 
-- Getting shell of docker container:
+**Getting shell of docker container:**
 ```
 docker exec -it c71a87c88a1e /bin/bash
 docker exec -it securethebox-challenge_nginx-modsecurity_1 /bin/sh
 ```
-- Installing and Starting Cloudcmd on Alpine:
+
+**Installing and Starting Cloudcmd on Alpine:**
 ```
 docker exec -u root -it dcdd24377a97 npm install -g cloudcmd && cloudcmd --port 7000 --no-open
 docker exec -u root -it dcdd24377a97 which cloudcmd
@@ -144,23 +139,25 @@ docker exec -u root -it dcdd24377a97 which cloudcmd
 docker exec -u root -it dcdd24377a97 npm install -g forever
 docker exec -u root -it dcdd24377a97 forever start /usr/local/bin/cloudcmd
 ```
-- Open a new port 8080:8080 on Container container_id_01
+
+**Open a new port 8080:8080 on Container container_id_01**
 ```
 docker stop container_id_01
 docker commit container_id_01 container_id_02
 docker run -p 8080:8080 -td container_id_02
 ```
 
-- Getting Network information of container:
+**Getting Network information of container:**
 ```
 docker inspect container_id_here | grep IPAddressdocker
 ```
-- Proxying port 8080 of host to port 80 on container
+
+**Proxying port 8080 of host to port 80 on container**
 ```
 docker run --name container_name -d -p 8080:80 container_image_name
 ```
 
-- Setup Nginx Conf and Cloudcmd for nginx-modsecurity
+**Setup Nginx Conf and Cloudcmd for nginx-modsecurity**
 ```
 docker-compose up -d
 docker cp ./nginx.conf securethebox-challenge_nginx-modsecurity_1:/etc/nginx/nginx.conf
@@ -172,7 +169,8 @@ docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 npm install -
 docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 forever start /usr/bin/cloudcmd --port 7000
 docker exec -it securethebox-challenge_nginx-modsecurity_1 /bin/sh
 ```
-- Install and Start Cloudcmd for juice-shop
+
+**Install and Start Cloudcmd for juice-shop**
 ```
 docker exec -u root -it securethebox-challenge_juice-shop_1 npm install -g cloudcmd
 docker exec -u root -it securethebox-challenge_juice-shop_1 npm install -g forever
@@ -180,12 +178,12 @@ docker exec -u root -it securethebox-challenge_juice-shop_1 forever start /usr/l
 docker exec -it securethebox-challenge_juice-shop_1 /bin/sh
 ```
 
-- juicebox setup
+**juicebox setup**
 ```
 docker run --rm -p 3000:3000 bkimminich/juice-shop
 ```
 
-- nginx config
+**nginx config**
 ```
 server {
     listen       80;
@@ -201,5 +199,3 @@ server {
     }
 }
 ```
-
-- 
