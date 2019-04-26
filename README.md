@@ -1,34 +1,40 @@
 # securethebox master repository
 
-*A platform to assess and measure security skills.*
+*A platform to assess and measure security hard skills.*
 Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex Levinson
 
 # What's in this repository:
 **securethebox-client**
-- This is the Frontend of the Application using Admin Template
+- This is the Frontend of the Application using Fuse Admin Template
 
 **securethebox-challenge**
 - This is the MVP challenge (alpha version) using Dockerized environment
 - View README.md inside directory for instructions for development environment setup
 
+**securethebox-server**
+- Hosted on Heroku
+- Python/Flask App
+- Used as a REST API
+- Has a gcloud + kubectl
+
 ## P0 - MVP
 **Planning**
 - [x] System Design Infrastructure - <https://sketchboard.me/pBw3UcaTPKfb#/>
-- [ ] Architecture Frontend Design Mockup
-- [ ] API Specificiation Draft
-- [ ] Firebase Functions Draft
-- [ ] Challenge #1 - Application Security: SQL Injection Detection - On-Click Deploy to AWS ECS
-- [ ] Challenge #1 - Application Security: SQL Injection Detection - Documentation Script
-- [ ] Challenge #1 - Application Security: SQL Injection Detection - Documentation Video
+- [ ] Challenge #1 - Application Security: SQL Injection Detection - On-Click Deploy to GKE
 - [x] First Customers Identified (Friends & Coworkers)
 
 **Frontend**
 - [x] React Template - Fuze
-- [ ] Academy Page (10%)
-- [x] Cloudcmd (Texteditor + Terminal) <http://cloudcmd.io/>
-- [ ] Firebase Integration - Firebase Hosting
+- [ ] Academy Page (Startup challenge environment, provide urls to challenge boxes)
+- [x] Ability to edit Application code, Cloudcmd (Texteditor + Terminal) <http://cloudcmd.io/>
+- [x] Firebase Integration - Firebase Hosting (React app in production)
 
 **Backend**
+- [x] External-DNS create DNS records dynamically
+- [x] Traefik - Route traffic to containers for challenge
+- [x] Heroku Server has gcloud+kubectl+service account
+- [ ] Flask RESTAPI created
+- [ ] Able to execute Kubectl commands over RESTAPI
 - [x] Docker - Traefik (Container Reverse Proxy) <https://hub.docker.com/_/traefik>
 - [x] Docker - Nginx + Modsecurity (WAF Detection/Prevention) <https://hub.docker.com/r/ncmd/nginx-modsecurity>
 - [ ] Docker - Splunk (Log Analysis) <https://hub.docker.com/r/splunk/splunk>
@@ -40,7 +46,8 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - [ ] All containers Dockerized (80%)
 - [x] Docker Network figured out (by traefik)
 - [x] Routing traffic to proper container using traefik
-- [x] Ability to modify vulnerable application code
+- [x] Ability to modify vulnerable application code using Cloudcmd
+- [ ] Dynamic YAML files for Kubectl deployments
 
 **Challenges**
 - [ ] SQL Injection Detection
@@ -53,17 +60,23 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - [x] Automate DNS record provisioning using ExternalDNS
 
 ## P1
-- [ ] Firebase Integration - Firestore
+- [ ] Traefik - All http traffic forced to SSL/TLS
 - [ ] Create an account with Email
-- [ ] Verify Email Address
-- [ ] Log out account
 - [ ] Sign in with Email
+- [ ] Verify Email Address
+- [ ] Stripe Subscriptions
+- [ ] Log out account
+
+- [ ] Firebase Integration - Firestore
 - [ ] Cloudflare DNS & WAF on Frontend
 - [ ] CI/CD with Travis - Firebase Hosting
 - [ ] CI/CD with Travis - Heroku Backend
-- [ ] Stripe Subscriptions
+
 
 ## P2
+- [ ] Architecture Frontend Design Mockup
+- [ ] API Specificiation Draft
+- [ ] Firebase Functions Draft
 - [ ] Automated deployment
 - [ ] Platform Self Service
 - [ ] API to change rules in WAF
@@ -81,6 +94,8 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - [ ] Challenge #X - WAF bypass detection
 
 ## P3
+- [ ] Challenge #1 - Application Security: SQL Injection Detection - Documentation Script
+- [ ] Challenge #1 - Application Security: SQL Injection Detection - Documentation Video
 - [ ] Twitter Created
 - [ ] Achievements system
 - [ ] Websocket Real-time updates
@@ -94,9 +109,9 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - [ ] Discord Channels - Patreons ()
 - [ ] Discord Channels Voice (Clubs)
 
-# Architecture Version 1
+# Architecture Version 2
 <p align="center">
-	<img src="_planning/architecture_ver_2.png" width="100%" align="center" alt="architecture_ver_2">
+	<img src="_planning/architecture/architecture_ver_2.png" width="100%" align="center" alt="architecture_ver_2">
 </p>
 
 # NOTES
