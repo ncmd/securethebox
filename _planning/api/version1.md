@@ -1,4 +1,35 @@
+# MVP API
 /api/v1/...
+
+# P1 - MVP
+
+Kubernetes commands
+[POST] - DONE
+/api/kubernetes/challenges/1/deploy - Deploy challenge #1 pods (traefik, waf, app, splunk)
+- params=userName,clusterName,action
+
+[POST] - DONE
+/api//kubernetes/challenges/1/destroy - Destroy challenge 1: deletes challenge 1 pods ; args=username ; exec
+- params=userName,clusterName,action
+
+
+
+# P2
+
+[GET] 
+/kubernetes/challenge/1/status/pods - Check deployment status of pods/containers (every 5 seconds)
+/kubernetes/challenge/1/status/dns - Check status of dns records created (dig)
+/kubernetes/challenge/1/status/pods/ready - Confirm when they are ready (if ready, ready=true)
+- args=username,jwt
+[GET] 
+/kubernetes/challenge/1/status/pods/links - Get urls of containers and present it to frontend
+- args=username,jwt
+[POST]
+/kubernetes/challenge/1/restart - Restart pod (destroy and redeploy)
+- args=username,servicename,jwt
+[POST]
+
+# P3 - Other
 
 Firebase
 [GET]
@@ -22,27 +53,6 @@ Google Kubernetes Engine
 /kubernetes/status/resources - Get cpu/memory load
 /kubernetes/status/zones - Get Regional clusters available
 /kubernetes/status/dns - Get External-DNS status/records
-
-Kubernetes commands
-[POST] 
-/kubernetes/challenge/1/deploy - Deploy challenge #1 pods (traefik, waf, app, splunk)
-- args=username, recaptcha token, auth2 token, jwt
-- should use a dynamic yml file when deploying
-[GET] 
-/kubernetes/challenge/1/status/pods - Check deployment status of pods/containers (every 5 seconds)
-/kubernetes/challenge/1/status/dns - Check status of dns records created (dig)
-/kubernetes/challenge/1/status/pods/ready - Confirm when they are ready (if ready, ready=true)
-- args=username,jwt
-[GET] 
-/kubernetes/challenge/1/status/pods/links - Get urls of containers and present it to frontend
-- args=username,jwt
-[POST]
-/kubernetes/challenge/1/restart - Restart pod (destroy and redeploy)
-- args=username,servicename,jwt
-[POST]
-/kubernetes/challenge/1/destroy - Destroy challenge 1: deletes challenge 1 pods ; args=username ; exec
-- Delete pods after 2 hours
-- args=username,servicename,jwt
 
 Firebase Metrics
 [GET]

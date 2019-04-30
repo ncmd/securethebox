@@ -33,21 +33,22 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - [x] External-DNS create DNS records dynamically
 - [x] Traefik - Route traffic to containers for challenge
 - [x] Heroku Server has gcloud+kubectl+service account
-- [ ] Flask RESTAPI created
-- [ ] Able to execute Kubectl commands over RESTAPI
+- [x] Flask RESTAPI created
+- [x] Able to execute Kubectl commands over RESTAPI
 - [x] Docker - Traefik (Container Reverse Proxy) <https://hub.docker.com/_/traefik>
 - [x] Docker - Nginx + Modsecurity (WAF Detection/Prevention) <https://hub.docker.com/r/ncmd/nginx-modsecurity>
-- [ ] Docker - Splunk (Log Analysis) <https://hub.docker.com/r/splunk/splunk>
+- [x] Docker - Splunk (Log Analysis) <https://hub.docker.com/r/splunk/splunk>
 - [x] Docker - Juice-shop (Vulnerable App) <https://hub.docker.com/r/ncmd/juice-shop>
 - [x] Docker - exec install cloudcmd and open port
-- [ ] Nginx logs to splunk
-- [ ] Modsecurity logs to splunk
-- [x] Nginx forwarding traffic to vulnerable application (on juiceshop app) (100%)
-- [ ] All containers Dockerized (80%)
+- [x] All containers Dockerized (80%)
 - [x] Docker Network figured out (by traefik)
-- [x] Routing traffic to proper container using traefik
-- [x] Ability to modify vulnerable application code using Cloudcmd
-- [ ] Dynamic YAML files for Kubectl deployments
+- [x] Kubernetes - Nginx logs to pvc
+- [x] Kubernetes - Modsecurity logs to pvc
+- [x] Kubernetes - Nginx forwarding traffic to vulnerable application (on juiceshop app) (100%)
+- [x] Kubernetes - Routing traffic to proper container using traefik
+- [ ] Kubernetes - Ability to modify vulnerable application code using Cloudcmd
+- [x] Kubernetes - Dynamic YAML files for Kubectl deployments
+- [x] Kubernetes - Splunk Universal Forwarder send logs to Splunk
 
 **Challenges**
 - [ ] SQL Injection Detection
