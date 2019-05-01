@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "/Users/charleschong/go/src/public"
+		},
+		{
+			"path": "/Users/charleschong/go/src/cavalry"
+		},
+		{
+			"path": "/Users/charleschong/go/src/securethebox"
+		},
+		{
+			"path": "/Users/charleschong/go/src/Fuse-React"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

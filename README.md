@@ -46,9 +46,10 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - [x] Kubernetes - Modsecurity logs to pvc
 - [x] Kubernetes - Nginx forwarding traffic to vulnerable application (on juiceshop app) (100%)
 - [x] Kubernetes - Routing traffic to proper container using traefik
-- [ ] Kubernetes - Ability to modify vulnerable application code using Cloudcmd
+- [x] Kubernetes - Ability to modify vulnerable application code using Cloudcmd
 - [x] Kubernetes - Dynamic YAML files for Kubectl deployments
 - [x] Kubernetes - Splunk Universal Forwarder send logs to Splunk
+- [ ] Kubernetes - Add wireshark with xpra
 
 **Challenges**
 - [ ] SQL Injection Detection
@@ -112,7 +113,7 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 
 # Architecture Version 2
 <p align="center">
-	<img src="_planning/architecture/architecture_ver_2.png" width="100%" align="center" alt="architecture_ver_2">
+	<img src="_planning/architecture/architecture_ver_3.png" width="100%" align="center" alt="architecture_ver_3">
 </p>
 
 # NOTES

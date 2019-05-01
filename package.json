@@ -11,7 +11,7 @@
     "FRONTEND-----------------------------------------------------------": "",
     "f": "cd securethebox-client ; npm run start",
     "deploy-frontend": "run-s deploy-frontend1 deploy-frontend2",
-    "deploy-frontend1": "cd securethebox-client ; echo 'npm run build' ; npm run build",
+    "deploy-frontend1": "cd securethebox-client ; echo 'yarn run build' ; yarn run build",
     "deploy-frontend2": "cd securethebox-client ; echo 'firebase use ncmd-stb-prod firebase deploy' ; firebase use prod && firebase deploy",
     "BACKEND-----------------------------------------------------------": "",
     "b": "cd securethebox-server ; python3.7 app.py",
