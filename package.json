@@ -4,7 +4,7 @@
   "description": "A platform to assess and measure security skills. ",
   "scripts": {
     "commit": "git add . && git commit -m \"Deploy\" && git push",
-    "commit-all": "npm run commit; cd .. ; cd securethebox-client ; npm run commit ; cd .. ; cd securethebox-server ; npm run commit",
+    "commit-all": "npm run commit; cd securethebox-client ; npm run commit ; cd .. ; cd securethebox-server ; npm run commit",
     "LOCAL DEV----------------------------------------------------------":"",
     "wk": "watch kubectl get all",
     "ps0":"cd securethebox-challenge && docker-compose ps",
