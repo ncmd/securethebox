@@ -7,20 +7,20 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 **securethebox-client**
 - This is the Frontend of the Application using Fuse Admin Template
 
-**securethebox-challenge**
-- This is the MVP challenge (alpha version) using Dockerized environment
-- View README.md inside directory for instructions for development environment setup
-
 **securethebox-server**
 - Hosted on Heroku
 - Python/Flask App
 - Used as a REST API
 - Has a gcloud + kubectl
 
+**securethebox-challenge (deprecated)**
+- This is the MVP challenge (alpha version) using Docker-Compose environment
+- View README.md inside directory for instructions for development environment setup
+
 ## P0 - MVP
 **Planning**
 - [x] System Design Infrastructure - <https://sketchboard.me/pBw3UcaTPKfb#/>
-- [ ] Challenge #1 - Application Security: SQL Injection Detection - On-Click Deploy to GKE
+- [ ] Challenge #1 - Exfiltration (Detection, Prevention, Monitoring)
 - [x] First Customers Identified (Friends & Coworkers)
 
 **Frontend**
@@ -50,6 +50,8 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - [x] Kubernetes - Dynamic YAML files for Kubectl deployments
 - [x] Kubernetes - Splunk Universal Forwarder send logs to Splunk
 - [ ] Kubernetes - Add wireshark with xpra
+- [ ] Business Logic - Send Invite to User Email
+- [ ] Business Logic - Scoring engine
 
 **Challenges**
 - [ ] SQL Injection Detection

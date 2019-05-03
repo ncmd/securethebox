@@ -28,22 +28,24 @@ One-liner involving current attack scenario, responsibility, and resources invol
 
 PART II Example:
 *Scenario:*
-*You're responsibility is to detect and prevent web application attacks*
-*There is an active attacker attempting hack your company's web app and prevent them from stealing sensitive customer information!*
-*You receive alerts of an attack in progress against a web application from you SIEM (Splunk) from your Web Application Firewall (Modsecurity)*
+*You receive alerts of an attack in progress against a web application from your SIEM (Splunk) and Web Application Firewall (Modsecurity)*
+*There is an active attacker attempting hack your company's web application, detect and prevent them from stealing sensitive customer information!*
 
 PART III - Resources:
 Table containing resources
 name | url_location
 
 PART III - Example:
+**Here are your resources**
 name | url_location
 splunk | http://splunk-userName.us-west1-a.securethebox.us
 modsecurity | http://nginx-modsecurity-userName.us-west1-a.securethebox.us
+modsecurity cloudcmd | http://nginx-modsecurity-userName-cloudcmd.us-west1-a.securethebox.us
 vulnerable app | http://app-userName.us-west1-a.securethebox.us
+vulnerable app cloudcmd | http://app-userName-cloudcmd.us-west1-a.securethebox.us
 wireshark | http://wireshark-userName.us-west1-a.securethebox.us
 
-Tips:
+*Tips:*
 splunk cheatsheet | http://splunk-userName.us-west1-a.securethebox.us
 modsecurity cheatsheet| http://nginx-modsecurity-userName.us-west1-a.securethebox.us
 vulnerable app cheatsheet| http://app-userName.us-west1-a.securethebox.us
@@ -53,20 +55,15 @@ PART IV - Grading Criteria:
 - [ ] Identify asset under attack.
 - [ ] Stop the attack in progress.
 - [ ] Cut off the attack vector.
-- [ ] Isolate affected instances.
 - [ ] Identify timeline of attack.
-- [ ] Identify compromised data, app vulnerabilities, and attacker artifacts.
-- [ ] Assess risk to other systems.
-- [ ] Assess risk of re-attack.
-- [ ] Apply additional mitigations, additions to monitoring, etc.
+- [ ] Identify app vulnerabilities.
+- [ ] Identify attacker artifacts.
+- [ ] Apply additional mitigations, 
+- [ ] Apply monitoring solutions.
+- [ ] Identify compromised data/files/etc.
 - [ ] Forensic analysis of compromised systems.
-<!-- Other Stuff -->
-<!-- - [ ] Assemble the response team. -->
-<!-- - [ ] Internal communication. -->
-<!-- - [ ] Involve law enforcement. -->
-<!-- - [ ] Reach out to external parties that may have been used as vector for attack. -->
-<!-- - [ ] External communication. -->
-
+- [ ] Apply static analysis, scan code for vulnerabilities
+- [ ] Apply dynamic analysis (burp suite)
 
 
 
