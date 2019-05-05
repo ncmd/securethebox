@@ -5,9 +5,9 @@
   "scripts": {
     "commit": "git add . && git commit -m \"Deploy\" && git push",
     "commit-all": "npm run commit; cd securethebox-client ; npm run commit ; cd .. ; cd securethebox-server ; npm run commit",
-    "LOCAL DEV----------------------------------------------------------":"",
+    "LOCAL DEV----------------------------------------------------------": "",
     "wk": "watch kubectl get all",
-    "ps0":"cd securethebox-challenge && docker-compose ps",
+    "ps0": "cd securethebox-challenge && docker-compose ps",
     "FRONTEND-----------------------------------------------------------": "",
     "f": "cd securethebox-client ; npm run start",
     "deploy-frontend": "run-s deploy-frontend1 deploy-frontend2",
@@ -15,9 +15,10 @@
     "deploy-frontend2": "cd securethebox-client ; echo 'firebase use ncmd-stb-prod firebase deploy' ; firebase use prod && firebase deploy",
     "BACKEND-----------------------------------------------------------": "",
     "b": "cd securethebox-server ; python3.7 app.py",
-    "deploy-backend":"run-s deploy-backend1",
+    "deploy-backend": "run-s deploy-backend1",
     "deploy-backend1": "cd securethebox-server ; heroku git:remote -a stb-server ; git add . ; git commit -m \"Deploy\" ; git push heroku master"
   },
   "author": "Charles Chong",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {}
 }
