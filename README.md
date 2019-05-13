@@ -1,6 +1,6 @@
-# securethebox master repository
+# SecureTheBox Master Repository
 
-*A platform to assess and measure security hard skills.*
+*A platform to assess and measure security **hard** skills.*
 Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex Levinson
 
 # What's in this repository:
@@ -18,40 +18,67 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - View README.md inside directory for instructions for development environment setup
 
 ## P0 - MVP
-**Planning**
+### **Planning**
 - [x] System Design Infrastructure - <https://sketchboard.me/pBw3UcaTPKfb#/>
+- [x] Challenge Process - <https://sketchboard.me/lBzYpOvyDoGv#/>
 - [ ] Challenge #1 - Exfiltration (Detection, Prevention, Monitoring)
 - [x] First Customers Identified (Friends & Coworkers)
 
-**Frontend**
-- [x] React Template - Fuze
-- [ ] Academy Page (Startup challenge environment, provide urls to challenge boxes)
-- [x] Ability to edit Application code, Cloudcmd (Texteditor + Terminal) <http://cloudcmd.io/>
-- [x] Firebase Integration - Firebase Hosting (React app in production)
+### **Frontend**
+- [x] **React Template**
+    - [x] Fuze <https://themeforest.net/item/fuse-react-react-redux-material-design-admin-template/21769397?s_rank=2>
+- [ ] **Academy Page**
+    - [x] **Overview**
+    - [x] **Grading Critera**
+    - [ ] **Scenario**
+        - [x] Description
+        - [ ] Architecture
+    - [x] **Start Challenge**
+        - [x] Start Challenge
+        - [x] End Challenge
+    - [ ] **Resources**
+        - [x] Name
+        - [x] Description
+        - [ ] Status
+        - [x] URLS
+    - [x] **Submission Answers**
+        - [x] To Firebase Firestore DB
+    - [ ] **Email Results**
+        - [ ] SendGrid
+- [x] **Ability to edit Application code**
+    - Cloudcmd (Texteditor + Terminal) <http://cloudcmd.io/>
+- [x] **Firebase Integration**
+    - Firebase Hosting (React app in production)
 
-**Backend**
-- [x] External-DNS create DNS records dynamically
-- [x] Traefik - Route traffic to containers for challenge
-- [x] Heroku Server has gcloud+kubectl+service account
-- [x] Flask RESTAPI created
-- [x] Able to execute Kubectl commands over RESTAPI
-- [x] Docker - Traefik (Container Reverse Proxy) <https://hub.docker.com/_/traefik>
-- [x] Docker - Nginx + Modsecurity (WAF Detection/Prevention) <https://hub.docker.com/r/ncmd/nginx-modsecurity>
-- [x] Docker - Splunk (Log Analysis) <https://hub.docker.com/r/splunk/splunk>
-- [x] Docker - Juice-shop (Vulnerable App) <https://hub.docker.com/r/ncmd/juice-shop>
-- [x] Docker - exec install cloudcmd and open port
-- [x] All containers Dockerized (80%)
-- [x] Docker Network figured out (by traefik)
-- [x] Kubernetes - Nginx logs to pvc
-- [x] Kubernetes - Modsecurity logs to pvc
-- [x] Kubernetes - Nginx forwarding traffic to vulnerable application (on juiceshop app) (100%)
-- [x] Kubernetes - Routing traffic to proper container using traefik
-- [x] Kubernetes - Ability to modify vulnerable application code using Cloudcmd
-- [x] Kubernetes - Dynamic YAML files for Kubectl deployments
-- [x] Kubernetes - Splunk Universal Forwarder send logs to Splunk
-- [ ] Kubernetes - Add wireshark with xpra
-- [ ] Business Logic - Send Invite to User Email
-- [ ] Business Logic - Scoring engine
+### **Backend**
+- [ ] **Python/Flask**
+    - [x] Flask RESTAPI created
+- [ ] **Heroku**
+    - [x] Heroku Server has gcloud+kubectl+service account
+    - [x] Able to execute Kubectl commands over RESTAPI
+    - [x] Cloudcmd exec install cloudcmd and open port
+- [ ] **Kubernetes**
+    - [x] Traefik: Routing traffic to proper container 
+    - [ ] Namespace + Networking segmented per user/challenge
+    - [x] Nginx logs to pvc
+    - [x] Modsecurity logs to pvc
+    - [x] Splunk Forwarder injects logs in pvc
+    - [x] Splunk Universal Forwarder send logs to Splunk
+    - [x] Nginx forwarding traffic to vulnerable application (on juiceshop app) (100%)
+    - [x] Ability to modify vulnerable application code using Cloudcmd
+    - [x] Dynamic YAML files for Kubectl deployments
+    - [ ] Add wireshark with xpra
+- [ ] **Google Cloud**
+    - [x] Google Service Account Provisioned for Heroku Server
+    - [x] External-DNS create DNS records dynamically
+- [ ] **Docker**
+    - [x] Traefik (Container Reverse Proxy) <https://hub.docker.com/_/traefik>
+    - [x] Nginx + Modsecurity (WAF Detection/Prevention) <https://hub.docker.com/r/ncmd/nginx-modsecurity>
+    - [x] Juice-Shop (Vulnerable App) <https://hub.docker.com/r/ncmd/juice-shop>
+    - [x] Splunk (Log Analysis) <https://hub.docker.com/r/splunk/splunk>
+- [ ] **Business Logic**
+    - [ ] Send Invite to User Email
+    - [ ] Scoring engine
 
 **Challenges**
 - [ ] SQL Injection Detection
@@ -65,13 +92,13 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 
 ## P1
 - [ ] Traefik - All http traffic forced to SSL/TLS
-- [ ] Create an account with Email
-- [ ] Sign in with Email
+- [x] Create an account with Email using Firebase
+- [x] Sign in with Email using Firebase
 - [ ] Verify Email Address
 - [ ] Stripe Subscriptions
-- [ ] Log out account
+- [x] Log out account using Firebase
 
-- [ ] Firebase Integration - Firestore
+- [x] Firebase Integration - Firestore
 - [ ] Cloudflare DNS & WAF on Frontend
 - [ ] CI/CD with Travis - Firebase Hosting
 - [ ] CI/CD with Travis - Heroku Backend
@@ -113,108 +140,19 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - [ ] Discord Channels - Patreons ()
 - [ ] Discord Channels Voice (Clubs)
 
-# Architecture Version 2
+# Architecture Version 3
 <p align="center">
 	<img src="_planning/architecture/architecture_ver_3.png" width="100%" align="center" alt="architecture_ver_3">
 </p>
 
+# Challenge Process Version 1
+<p align="center">
+	<img src="_planning/challenges/challenge_process_ver_1.png" width="100%" align="center" alt="challenge_process_ver_1">
+</p>
+
 # NOTES
-- May need to switch to a Kubernetes setup if this does not work...
 - Adding a Git Submodule example (DO NOT use this command if you do not know what you're doing...)
 ```
 git submodule add https://github.com/ncmd/securethebox-challenge
 ```
 
-**Traefik Setup**
-- https://www.digitalocean.com/community/tutorials/how-to-use-traefik-as-a-reverse-proxy-for-docker-containers-on-ubuntu-18-04
-```
-docker network create challenge1
-touch acme.json
-chmod 600 acme.json
-docker run -d \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  -v $PWD/traefik.toml:/traefik.toml \
-  -v $PWD/acme.json:/acme.json \
-  -p 80:80 \
-  -p 443:443 \
-  -l traefik.frontend.rule=Host:monitor.securethebox.us \
-  -l traefik.port=8080 \
-  --network challenge1 \
-  --name traefik \
-  traefik:1.7.10-alpine
-```
-
-**Getting shell of docker container:**
-```
-docker exec -it c71a87c88a1e /bin/bash
-docker exec -it securethebox-challenge_nginx-modsecurity_1 /bin/sh
-```
-
-**Installing and Starting Cloudcmd on Alpine:**
-```
-docker exec -u root -it dcdd24377a97 npm install -g cloudcmd && cloudcmd --port 7000 --no-open
-docker exec -u root -it dcdd24377a97 which cloudcmd
-/usr/local/bin/cloudcmd
-docker exec -u root -it dcdd24377a97 npm install -g forever
-docker exec -u root -it dcdd24377a97 forever start /usr/local/bin/cloudcmd
-```
-
-**Open a new port 8080:8080 on Container container_id_01**
-```
-docker stop container_id_01
-docker commit container_id_01 container_id_02
-docker run -p 8080:8080 -td container_id_02
-```
-
-**Getting Network information of container:**
-```
-docker inspect container_id_here | grep IPAddressdocker
-```
-
-**Proxying port 8080 of host to port 80 on container**
-```
-docker run --name container_name -d -p 8080:80 container_image_name
-```
-
-**Setup Nginx Conf and Cloudcmd for nginx-modsecurity**
-```
-docker-compose up -d
-docker cp ./nginx.conf securethebox-challenge_nginx-modsecurity_1:/etc/nginx/nginx.conf
-docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 cat /etc/nginx/nginx.conf
-docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 nginx -s reload
-docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 apk add nodejs nodejs-npm
-docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 npm install -g cloudcmd
-docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 npm install -g forever
-docker exec -u root -it securethebox-challenge_nginx-modsecurity_1 forever start /usr/bin/cloudcmd --port 7000
-docker exec -it securethebox-challenge_nginx-modsecurity_1 /bin/sh
-```
-
-**Install and Start Cloudcmd for juice-shop**
-```
-docker exec -u root -it securethebox-challenge_juice-shop_1 npm install -g cloudcmd
-docker exec -u root -it securethebox-challenge_juice-shop_1 npm install -g forever
-docker exec -u root -it securethebox-challenge_juice-shop_1 forever start /usr/local/bin/cloudcmd --port 7000
-docker exec -it securethebox-challenge_juice-shop_1 /bin/sh
-```
-
-**juicebox setup**
-```
-docker run --rm -p 3000:3000 bkimminich/juice-shop
-```
-
-**nginx config**
-```
-server {
-    listen       80;
-    server_name  localhost;
-    modsecurity on;
-    location / {
-        rewrite ^/juice-shop(.*) /$1 break;
-        proxy_pass http://juice-shop:3000;
-    }
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
-}
-```
