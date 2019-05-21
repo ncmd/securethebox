@@ -17,6 +17,15 @@
 		},
 		{
 			"path": "/Users/charleschong/go/src/public"
+		},
+		{
+			"path": "/Users/charleschong/go/src/documentation"
+		},
+		{
+			"path": "/Users/charleschong/go/src/juice-shop"
+		},
+		{
+			"path": "/Users/charleschong/go/src/express-status-monitor"
 		}
 	],
 	"settings": {
