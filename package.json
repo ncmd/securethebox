@@ -16,7 +16,9 @@
     "BACKEND-----------------------------------------------------------": "",
     "b": "cd securethebox-server ; python3.7 app.py",
     "deploy-backend": "run-s deploy-backend1",
-    "deploy-backend1": "cd securethebox-server ; heroku git:remote -a stb-server ; git add . ; git commit -m \"Deploy\" ; git push heroku master"
+    "deploy-backend1": "cd securethebox-server ; heroku git:remote -a stb-server ; git add . ; git commit -m \"Deploy\" ; git push heroku master",
+    "SCORING-----------------------------------------------------------": "",
+    "e": "cd securethebox-engine ; python3.7 app.py"
   },
   "author": "Charles Chong",
   "license": "ISC",
