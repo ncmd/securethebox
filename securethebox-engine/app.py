@@ -52,7 +52,7 @@ def check_app_status():
     while True:
         
         # setting sleep to 15 seconds should not cause downtime
-        socketio.sleep(5)
+        socketio.sleep(1)
         # count += 1
         timenow = datetime.now()
         
