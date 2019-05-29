@@ -9,6 +9,7 @@ import os
 from datetime import datetime, timedelta
 import requests
 import json
+import jwt
 
 async_mode = None
 
@@ -19,13 +20,24 @@ thread = None
 thread_lock = Lock()
 
 """
-
 Kubernetes needs to be online for the engine to work
 
 Need to fix on disconnect; there is a game of no socket data because client disconnected
 
 Should be sending results to firebase
 Client should be getting information from firebase
+
+IMPORTANT API's
+/api/Users - done
+/api/BasketItems - done
+/rest/basket/12076/checkout - done
+/product/search?
+/api/Products
+/api/Baskets
+/rest/Basket
+/api/Complaints
+/file-upload
+/ftp
 
 """
 
@@ -36,68 +48,135 @@ def background_thread():
 
 # check if app is online/offline
 def check_app_status():
+    print("CHECK APP STATUS")
     while True:
         
         # setting sleep to 15 seconds should not cause downtime
-        socketio.sleep(3)
+        socketio.sleep(5)
         # count += 1
         timenow = datetime.now()
         
         try:
-            auth_result = check_app_authentication(timenow)
             response = requests.request("GET", 'http://juice-shop-charles.us-west1-a.securethebox.us')
+            print('RESPONSE STATUS CODE:',response.status_code)
             if response.status_code == 200:
-                socketio.emit('my_response', {'app_status':'online', 'api_user_login':auth_result,'startTime':str(timenow.isoformat()), 'endTime':str((timenow+timedelta(seconds=1)).isoformat()), 'title':'up'})
+                auth_result, auth_token, basket_id = check_rest_user_login(timenow)
+                basket_results = check_api_basketitems(auth_token,basket_id)
+                checkout_results = check_rest_basket_checkout(auth_token, basket_id)
+                user_count = check_user_registered(auth_token)
+                print('VARIABLES:',auth_result, auth_token, basket_id,basket_results,checkout_results,user_count)
+                socketio.emit('my_response', {'app_status':'online', 'api_user_login':auth_result, 'basket_result':basket_results, 'checkout_results':checkout_results, 'user_count':user_count,'startTime':str(timenow.isoformat()), 'endTime':str((timenow+timedelta(seconds=1)).isoformat()), 'title':'up'})
             else:
-                socketio.emit('my_response', {'app_status':'offline', 'api_user_login':auth_result, 'startTime':str(timenow.isoformat()), 'endTime':str((timenow+timedelta(seconds=1)).isoformat()), 'title':'down'})
+                print("SUM TING WONG")
+                socketio.emit('my_response', {'app_status':'offline', 'api_user_login':"failed", 'basket_result':"failed", 'checkout_results':"failed", 'user_count':user_count,'startTime':str(timenow.isoformat()), 'endTime':str((timenow+timedelta(seconds=1)).isoformat()), 'title':'down'})
         except:
-            socketio.emit('my_response', {'app_status':'offline', 'api_user_login':auth_result, 'startTime':str(timenow.isoformat()), 'endTime':str((timenow+timedelta(seconds=1)).isoformat()), 'title':'down'})
+            print('SUM TING WONG 2')
+            socketio.emit('my_response', {'app_status':'offline', 'api_user_login':"failed", 'basket_result':"failed", 'checkout_results':"failed", 'user_count':0, 'startTime':str(timenow.isoformat()), 'endTime':str((timenow+timedelta(seconds=1)).isoformat()), 'title':'down'})
 
 def create_app_user():
     print("Trying request...")
     try:
+        headers = {'Content-Type': "application/json"}
         payload = "{\"email\": \"test@securethebox.us\", \"password\": \"changemestb\"}"
-        response = requests.request("POST", "http://juice-shop-charles.us-west1-a.securethebox.us/api/Users", data=payload)
+        response = requests.request("POST", "http://juice-shop-charles.us-west1-a.securethebox.us/api/Users", data=payload,headers=headers)
         json_response = json.loads(response.json())
         print("json_response:",json_response)
     except:
         print("Failed user creation request or user")
 
-def check_app_authentication(timenow):
-    # print("Trying Authentication")
-    # timenow = datetime.now()
+def check_rest_user_login(timenow):
+    print('CHECK REST USER LOGIN')
     try:
         payload = "{\"email\": \"test@securethebox.us\", \"password\": \"changemestb\"}"
         headers = {'Content-Type': "application/json"}
         response = requests.request("POST", "http://juice-shop-charles.us-west1-a.securethebox.us/rest/user/login", data=payload, headers=headers)
         json_response = json.loads(response.text)
-        # print("Response:",json_response['authentication']['umail'])
         if json_response['authentication']['umail'] == "test@securethebox.us":
-            # print("Success...",json_response['authentication']['umail'])
-            return "success"
-            # socketio.emit('api_user_login', {'api_user_login':'success', 'startTime':str(timenow.isoformat()), 'endTime':str((timenow+timedelta(seconds=1)).isoformat()), 'title':'up'})
+            auth_result = "success"
+            auth_token = json_response['authentication']['token']
+            basket_id =  json_response['authentication']['bid']
+            print("AUTH_RESULT:",auth_result)
+            print("AUTH_TOKEN:",auth_token)
+            print("BASKET_ID:",basket_id)
+            return auth_result, auth_token, basket_id
         else:
-            # print("Failed...",json_response['authentication']['umail'])
-            return "failed"
-            # socketio.emit('api_user_login', {'api_user_login':'failed', 'startTime':str(timenow.isoformat()), 'endTime':str((timenow+timedelta(seconds=1)).isoformat()), 'title':'down'})
+            print("SUM TING WONG - check_rest_user_login")
+            create_app_user()
+            auth_result = "failed"
+            auth_token = "none"
+            return auth_result, auth_token
     except:
-        # print("Failed to authenticate")
-        return "failed"
-        # socketio.emit('api_user_login', {'api_user_login':'failed', 'startTime':str(timenow.isoformat()), 'endTime':str((timenow+timedelta(seconds=1)).isoformat()), 'title':'down'})
+        print("SUM TING WONG - check_rest_user_login")
+        create_app_user()
+        # create_app_user()
+        auth_result = "failed"
+        auth_token = "none"
+        return auth_result, auth_token
 
-"""
-/product/search?
-/api/Users
-/api/Products
-/api/BasketItems
-/api/Baskets
-/rest/Basket
-/api/Complaints
-/file-upload
-/ftp
+def check_api_basketitems(auth_token,basket_id):
+    print('CHECK API BASKETITEMS')
+    headers = {
+        'content-type': "application/json",
+        'Authorization': "Bearer "+auth_token,
+        }
+    if auth_token != "none":
+        try:
+            url = "http://juice-shop-charles.us-west1-a.securethebox.us/api/BasketItems"
+            payload = "{ \"BasketId\": "+str(basket_id)+", \"ProductId\": 2, \"quantity\": 1 }"
+            response = requests.request("POST", url, data=payload, headers=headers)
+            json_response = json.loads(response.text)
+            # print("ADD BASKET RESPONSE",response)
+            if json_response['status'] == "success":
+                # print("ADDED ITEM TO BASKET!")
+                return "success"
+            else:
+                print("SUM TING WONG - check_api_basketitems")
+                return "failed"
+        except:
+            print("SUM TING WONG - check_api_basketitems")
+            return "failed"
 
-"""
+def check_rest_basket_checkout(auth_token, basket_id):
+    print('CHECK REST BASKET CHECKOUT')
+    headers = {
+        'content-type': "application/json",
+        'Authorization': "Bearer "+auth_token,
+        }
+    if auth_token != "none":
+        try:
+            url = "http://juice-shop-charles.us-west1-a.securethebox.us/rest/basket/"+str(basket_id)+"/checkout"
+            response = requests.request("POST", url, headers=headers)
+            json_response = json.loads(response.text)
+            # print("CHECKOUT BASKET RESPONSE",response)
+            if 'orderConfirmation' in json_response:
+                # print("BASKET CHECKOUT!")
+                return "success"
+            else:
+                print("SUM TING WONG - check_rest_basket_checkout")
+                return "failed"
+        except:
+            print("SUM TING WONG - check_rest_basket_checkout")
+            return "failed"
 
+def check_user_registered(auth_token):
+    print('CHECK USER REGISTERED')
+    headers = {
+        'Authorization': "Bearer "+auth_token,
+        }
+    if auth_token != "none":
+        try:
+            url = "http://juice-shop-charles.us-west1-a.securethebox.us/api/Users"
+            response = requests.request("GET", url, headers=headers)
+            json_response = json.loads(response.text)
+            if 'status' in json_response:
+                user_count = len(json_response['data'])
+                return int(user_count)
+            else:
+                print("SUM TING WONG - check_user_registered")
+                return 0
+        except:
+            print("SUM TING WONG - check_user_registered")
+            return 0
 
 @socketio.on_error()
 def error_handler(e):
@@ -121,4 +200,4 @@ def test_disconnect():
         print("Something happened...")
 
 if __name__ == '__main__':
-    socketio.run(app, port=6600, debug=True)
+    socketio.run(app, port=6600, debug=False)
