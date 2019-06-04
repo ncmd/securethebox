@@ -10,6 +10,7 @@
     "ps0": "cd securethebox-challenge && docker-compose ps",
     "FRONTEND-----------------------------------------------------------": "",
     "f": "cd securethebox-client ; npm run start",
+    "fk": "sudo lsof -t -i tcp:3000  | xargs kill",
     "deploy-frontend": "run-s deploy-frontend1 deploy-frontend2",
     "deploy-frontend1": "cd securethebox-client ; echo 'yarn run build' ; yarn run build",
     "deploy-frontend2": "cd securethebox-client ; echo 'firebase use ncmd-stb-prod firebase deploy' ; firebase use prod && firebase deploy",
@@ -18,7 +19,10 @@
     "deploy-backend": "run-s deploy-backend1",
     "deploy-backend1": "cd securethebox-server ; heroku git:remote -a stb-server ; git add . ; git commit -m \"Deploy\" ; git push heroku master",
     "SCORING-----------------------------------------------------------": "",
-    "e": "cd securethebox-engine ; python3.7 app.py"
+    "e": "cd securethebox-engine ; python3.7 app.py",
+    "ek": "sudo lsof -t -i tcp:6600  | xargs kill",
+    "SCORING-----------------------------------------------------------": "",
+    "kill": "sudo lsof -t -i tcp:8000  | xargs kill"
   },
   "author": "Charles Chong",
   "license": "ISC",
