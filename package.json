@@ -21,10 +21,11 @@
     "SCORING-----------------------------------------------------------": "",
     "e": "cd securethebox-engine ; python3.7 app.py",
     "ek": "sudo lsof -t -i tcp:6600  | xargs kill",
-    "SCORING-----------------------------------------------------------": "",
-    "kill": "sudo lsof -t -i tcp:8000  | xargs kill"
+    "kill": "sudo lsof -t -i tcp:3000  | xargs kill"
   },
   "author": "Charles Chong",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {
+    "node-serialize": "0.0.4"
+  }
 }
