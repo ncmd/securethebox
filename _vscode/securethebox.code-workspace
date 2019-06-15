@@ -26,6 +26,9 @@
 		},
 		{
 			"path": "/Users/charleschong/go/src/express-status-monitor"
+		},
+		{
+			"path": "/Users/charleschong/go/src/atrium"
 		}
 	],
 	"settings": {
