@@ -1,3 +1,15 @@
+# Attacker Workflow
+
+1. Scan Application (dirbuster)
+2. Exploit Backdoor (serialization library)
+3. Get shell, upgrade to meterpreter
+4. Install PyExfil system
+5. Run PyExfil to generate pii data
+6. Perform data exfiltration
+7. 
+
+
+
 Metasploit + Python Setup
 
 

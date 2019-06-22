@@ -5,3 +5,4 @@ yarn.lock
 private.txt
 private.json
 securethebox-server/apps/
+securethebox-server/kubernetes-deployments/services/suricata/deploy.yml
