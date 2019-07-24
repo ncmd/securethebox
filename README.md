@@ -13,6 +13,14 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - Used as a REST API
 - Has a gcloud + kubectl
 
+**securethebox-attacker**
+- Kali Linux Pod
+- Automated exploiting vulnerabilities on Juice-Shop
+- Uses python+metasploit
+
+**securethebox-engine**
+- Scoring engine service use to score uptime of Juice-Shop App
+
 **securethebox-challenge (deprecated)**
 - This is the MVP challenge (alpha version) using Docker-Compose environment
 - View README.md inside directory for instructions for development environment setup

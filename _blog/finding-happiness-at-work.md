@@ -1,0 +1,1 @@
+What makes working fun and enjoyable?  It's not just the work, it's the people who you will see everyday.

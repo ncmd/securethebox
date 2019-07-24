@@ -22,3 +22,6 @@ $100 / month
 20 interviews / month
 $10 per interview in excess of 20
 1 user account per company
+
+
+Include automatic scoring 

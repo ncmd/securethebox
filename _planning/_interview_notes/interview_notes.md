@@ -9,7 +9,8 @@ Recruiter:
 - asks what is your ideal role/work that you would be doings
 - what are you interested doing at this company
 - why work at this company
-Screening:
+
+Phone Technical Screening:
 - how good is your programming skills?
 - being able to move
 
@@ -18,11 +19,16 @@ Screening:
 - Ask for interview preparation and expectations
 
 # Stage 2
+- How to work with teams
 - testing coding:
-- 
-
-
-
+- Demonstrate leading a team
+- Experience with ELK Stack
+- AWS 
+- About SSH protocols "What happens when you "ssh"
+- How to secure Kubernetes
+- Skills of being a Leader and Teaching engineers about security
+- What is CORS
+- What is Cross Site Origin
 mobile app security
 
 
