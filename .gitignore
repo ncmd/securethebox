@@ -6,3 +6,4 @@ private.txt
 private.json
 securethebox-server/apps/
 securethebox-server/kubernetes-deployments/services/suricata/deploy.yml
+securethebox-server/secrets/

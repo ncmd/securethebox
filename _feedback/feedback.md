@@ -1,4 +1,4 @@
-7/4
+# 7/4
 
 only 1 challenge; 
 what if people cheat; talk on reddit about solution
@@ -18,7 +18,13 @@ before challenge charts; interviewer should have access to all the skills they a
 pay for automatic grading 
 
 
-7/14
+# 7/14
 
 need a way to manage adding challenges (perhaps use code for adding new posts)
 need to modify how frontend get challenge 'steps'
+
+
+# 7/25
+when the problem occurred
+how the problem happened
+what are the current solutions?
