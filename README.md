@@ -105,7 +105,10 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 - [ ] Verify Email Address
 - [ ] Stripe Subscriptions
 - [x] Log out account using Firebase
-
+- [x] Backend - Challenge Class
+- [x] Backend - Question Class
+- [x] Backend - Solution Class
+- [x] Backend - App Class
 - [x] Firebase Integration - Firestore
 - [ ] Cloudflare DNS & WAF on Frontend
 - [ ] CI/CD with Travis - Firebase Hosting
@@ -161,6 +164,7 @@ Inspired by [gen0cide/h3](https://github.com/gen0cide/h3) a project made by Alex
 # NOTES
 - Adding a Git Submodule example (DO NOT use this command if you do not know what you're doing...)
 ```
-git submodule add https://github.com/ncmd/securethebox-challenge
+git submodule add https://github.com/ncmd/securethebox-attacker
+git submodule add https://github.com/ncmd/securethebox-client.git
 ```
 

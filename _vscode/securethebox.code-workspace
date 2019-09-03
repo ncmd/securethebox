@@ -1,25 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "/Users/charleschong/go/src/cavalry"
-		},
-		{
 			"path": "/Users/charleschong/go/src/securethebox"
 		},
 		{
-			"path": "/Users/charleschong/go/src/public"
+			"path": "/Users/charleschong/go/src/cavalry"
 		},
 		{
-			"path": "/Users/charleschong/go/src/juice-shop"
-		},
-		{
-			"path": "/Users/charleschong/go/src/atrium"
-		},
-		{
-			"path": "/Users/charleschong/go/src/Fuse-React-v3"
-		},
-		{
-			"path": "/Users/charleschong/go/src/securethebox-client"
+			"path": "/Users/charleschong/go/src/react-monaco-editor"
 		}
 	],
 	"settings": {
