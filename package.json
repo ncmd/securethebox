@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A platform to assess and measure security skills. ",
   "scripts": {
-    "commit": "git add --all && git commit -m \"Deploy\" && git push",
+    "commit": "git add --all && git cz && git push",
+    "commit-client": "cd securethebox-client; npm run commit",
     "commit-all": "npm run commit; cd securethebox-client ; npm run commit ; cd .. ; cd securethebox-server ; npm run commit",
     "LOCAL DEV----------------------------------------------------------": "",
     "wk": "watch kubectl get all",
@@ -27,5 +28,13 @@
   "license": "ISC",
   "dependencies": {
     "node-serialize": "0.0.4"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "3.0.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

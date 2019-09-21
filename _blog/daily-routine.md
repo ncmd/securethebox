@@ -47,16 +47,16 @@
 1. Wake up
 2. Brush teeth
 3. Shower
-4. Code on side project
+4. Drive to Bart
+## 8:00 AM
+5. In Office
+6. Eat breakfast
+7. Check emails
 ## 9:00 AM
-5. Commit code
-6. Head to Office:
-## 10:00 AM
-7. Arrive at office, prepare some breakfast
-8. Review OKRs and KPIs
-9. Review Emails
+8. Review OKRs and KPIs, goals for the day
+9. Start Standup Notes
 10. Schedule/accept meetings
-## 11:00 AM
+## 10:00 AM
 11. Review OKR Dependancies and Blockers
 12. Research solutions
 13. Design Solution
@@ -69,13 +69,13 @@
 19. Lunch
 ## 13:00 PM
 20. Continue completing tasks for KPI
-21. Conclude day of notes for what I did for the day
+21. Conclude day of Standup notes for what I did for the day
 # 18:00 PM
 22. Head home
 # 19:00 PM
 23. Arrive home
-24. eat lunch/dinner (work out first)
-25. meditate till I get bored again
+24. Eat dinner
+25. Meditate till I get bored or begin working on side projects
 26. Sync from Backups (FreeFileSync + Google Drive + DropBox)
 27. Start coding on side project
 # 22:00 PM
@@ -87,7 +87,4 @@
 ## 23:00 PM
 33. Shower
 34. Brush teeth
-## 24:00 PM
-35. Watch tv Show
-## 00:00 PM
-36. Sleep
+35. Sleep....zzzzZZZZ
