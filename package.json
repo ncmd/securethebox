@@ -5,6 +5,7 @@
   "scripts": {
     "commit": "git add --all && git cz && git push",
     "commit-client": "cd securethebox-client; npm run commit",
+    "commit-server": "cd securethebox-server; npm run commit",
     "commit-all": "npm run commit; cd securethebox-client ; npm run commit ; cd .. ; cd securethebox-server ; npm run commit",
     "LOCAL DEV----------------------------------------------------------": "",
     "wk": "watch kubectl get all",
