@@ -1,7 +1,7 @@
 
 [submodule "securethebox-client"]
 	path = securethebox-client
-	url = https://github.com/ncmd/securethebox-client.git
+	url = https://github.com/ncmd/securethebox-client
 [submodule "securethebox-server"]
 	path = securethebox-server
 	url = https://github.com/ncmd/securethebox-server
