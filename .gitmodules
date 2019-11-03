@@ -2,12 +2,12 @@
 [submodule "securethebox-client"]
 	path = securethebox-client
 	url = https://github.com/ncmd/securethebox-client
-[submodule "securethebox-server"]
-	path = securethebox-server
-	url = https://github.com/ncmd/securethebox-server
 [submodule "securethebox-attacker"]
 	path = securethebox-attacker
 	url = https://github.com/ncmd/securethebox-attacker
 [submodule "securethebox-engine"]
 	path = securethebox-engine
 	url = https://github.com/ncmd/securethebox-engine
+[submodule "securethebox-server-legacy"]
+	path = securethebox-server-legacy
+	url = https://github.com/ncmd/securethebox-server-legacy.git
