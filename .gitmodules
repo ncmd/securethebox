@@ -8,6 +8,12 @@
 [submodule "securethebox-engine"]
 	path = securethebox-engine
 	url = https://github.com/ncmd/securethebox-engine
+[submodule "securethebox-server"]
+	path = securethebox-server
+	url = https://github.com/securethebox/securethebox-server.git
+[submodule "securethebox-client-legacy"]
+	path = securethebox-client-legacy
+	url = https://github.com/ncmd/securethebox-client-legacy.git
 [submodule "securethebox-server-legacy"]
 	path = securethebox-server-legacy
 	url = https://github.com/ncmd/securethebox-server-legacy.git
